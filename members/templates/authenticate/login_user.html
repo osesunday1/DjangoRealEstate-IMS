@@ -1,0 +1,40 @@
+{% extends 'sow/base.html'%}
+
+
+{% block content%}
+
+
+    <center>
+      <div class="shadow p-4 mt-5 bg-body rounded">
+       <br/><br/> <form action="" method=POST>
+          {% csrf_token %}
+
+            <!-- username input -->
+            <div class="form-outline mb-4">
+              <input type="text" id="form2Example1" class="form-control" name="username"/>
+              <label class="form-label" for="form2Example1">Username</label>
+            </div>
+          
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+              <input type="password" id="form2Example2" class="form-control" name="password"/>
+              <label class="form-label" for="form2Example2">Password</label>
+            </div>
+          
+          
+          
+            <!-- Submit button -->
+            <button type="submit" value="submit" class="btn btn-outline-secondary btn-block mb-4 ">Sign in</button>
+          
+          
+            <!-- Register buttons -->
+            <div class="text-center">
+              <p>Not a member? <a href="{% url 'register-users' %}"">Register</a></p>
+              
+            </div>
+          </form>
+        </div>
+    </center>
+
+    {% endblock %}
+    

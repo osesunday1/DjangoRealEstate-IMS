@@ -1,0 +1,43 @@
+{% extends 'sow/base.html'%}
+
+
+{% block content%}
+
+
+
+
+        <div class="card">
+            <h5 class="card-header">{{ client }}</h5>
+            <div class="card-body">
+              <p class="card-text">
+                <ul>
+
+        {{ client.phone }} <br/>
+        {{ client.email }} <br/>
+        {{ client.building_type }}<br/> 
+        {{ client.price }} <br/>
+        {{ client.amount_paid }} <br/>
+        {{ client.amount_left }} <br/>
+        {{ client.sales_date }} <br/>
+        {{ client.last_payment }} <br/>
+        {{ client.address }} <br/>
+        {{ client.agent_name.phone }} <br/>
+        {{ client.agent_name.phone }}<br/>
+        {{ client.agent_comment }}<br/>
+        {{ agent.stock }} <br/>
+
+    </ul><br/>
+
+
+        {% if client.client_image %}
+        <img src= "{{ client.client_image.url }}" width="200" height="300"> 
+        {% endif %}
+        
+</p>
+<a href="#" class="btn btn-primary">Go somewhere</a>
+</div>
+</div>
+
+
+
+    {% endblock %}

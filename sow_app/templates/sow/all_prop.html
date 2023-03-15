@@ -1,0 +1,38 @@
+{% extends 'sow/base.html'%}
+
+
+{% block content%}
+
+
+    
+        <h1>Property List</h1>
+        
+    {% for property in property_list %}
+    
+    <div class="card">
+        <h5 class="card-header">{{ property }}</h5>
+        <div class="card-body">
+          <p class="card-text">
+            <ul>
+                <li><i>Property Type</i> : {{ property.building_type }} </li>
+                <li><i>Initial Quantity</i> : {{ property.initial_quantity }} </li>
+                <li><i>Quantity In Stock</i> : {{ property.quantity_in_stock }} </li>
+                <li><i>Quantity Sold</i> : {{ property.quantity_sold }} </li>
+                <li><i>Price</i> : {{ property.price }} </li>
+            </ul>
+        
+        
+          </p>
+          <a href="{% url 'update-property' property.id %}" class="btn btn-primary">Update Property</a>
+          <a href="{% url 'delete-property' property.id %}" class="btn btn-danger">Delete Property</a>
+        </div>
+      </div><br/>
+
+
+    {% endfor %}
+        
+   
+   
+
+
+    {% endblock %}

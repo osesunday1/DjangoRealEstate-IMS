@@ -1,0 +1,39 @@
+{% extends 'sow/base.html'%}
+
+
+{% block content%}
+
+
+    
+        <h1>Agent List</h1>
+        
+    {% for agent in agent_list %}
+    
+    <div class="card">
+        <h5 class="card-header">{{ agent }}</h5>
+        <div class="card-body">
+          <p class="card-text">
+            <ul>
+                <li><i>Phone Number</i>: {{ agent.phone }} </li>
+                <li><i>Email</i> : {{ agent.email }} </li>
+                <li><i>Address</i> : {{ agent.address }} </li>
+                <li><i>Properties Sold</i> : {{ agent.number_of_properties_sold }} </li>
+                
+                
+            </ul>
+        
+        
+          </p>
+          <a href="{% url 'update-agent' agent.id %}" class="btn btn-primary">Update Agent</a>
+          <a href="{% url 'delete-agent' agent.id %}" class="btn btn-danger">Delete Agent</a>
+        </div>
+      </div><br/>
+
+
+    {% endfor %}
+        
+   
+   
+
+
+    {% endblock %}

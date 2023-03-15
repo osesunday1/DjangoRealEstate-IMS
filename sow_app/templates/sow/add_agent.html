@@ -1,0 +1,28 @@
+{% extends 'sow/base.html'%}
+
+
+{% block content%}
+
+
+    <center>
+
+        <a class="dropdown-item" href="{% url 'add-agent' %}"><h1>Add Agent</h1></a>
+        {% if submitted%}
+            Your Entry Was Successfull
+        {% else %}
+
+        <form action="" method=POST>
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+
+            <input type="submit" value="submit" class="btn btn-secondary">
+
+
+        </form>
+
+        {% endif %}
+    </center>
+
+    {% endblock %}

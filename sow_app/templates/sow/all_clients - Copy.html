@@ -1,0 +1,47 @@
+{% extends 'sow/base.html'%}
+
+
+{% block content%}
+
+
+    
+        <h1>Client List</h1>
+        
+    {% for client in client_list %}
+    
+    <div class="card">
+        <h5 class="card-header">{{ client }}</h5>
+        <div class="card-body">
+          <p class="card-text">
+            <ul>
+                <li><i>Phone Number</i>: {{ client.phone }} </li>
+                <li><i>Email</i> : {{ client.email }} </li>
+                <li><i>Property</i> : {{ client.building_type }} </li>
+                <li><i>Price</i> : {{ client.price }} </li>
+                <li><i>Amount Paid</i> : {{ client.amount_paid }} </li>
+                <li><i>Amount Left</i> : {{ client.amount_left }} </li>
+                <li><i>Sales Date</i> : {{ client.sales_date }} </li>
+                <li><i>Last Payment Date</i> : {{ client.last_payment }} </li>
+                <li><i>Address</i> : {{ client.address }} </li>
+                <li><i>Agent Name</i> : {{ client.agent_name }} </li>
+                <li><i>Agent Number</i> : {{ client.agent_name.phone }} </li>
+                <li><i>Agent Number</i> : {{ client.agent_name.phone }} </li>
+                <li><i>Agent Comment</i> : {{ client.agent_comment }} </li>
+                <li><i>Agent Count</i> : {{ agent.stock }} </li>
+                
+            </ul>
+        
+        
+          </p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+
+
+    {% endfor %}
+        
+   
+   
+
+
+    {% endblock %}

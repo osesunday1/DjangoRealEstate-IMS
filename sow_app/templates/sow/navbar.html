@@ -1,0 +1,100 @@
+
+{% load static %}
+
+
+
+<nav class="navbar navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+
+ 
+        <div class="center-block d-block mx-auto mt-4 ">
+          <a href="{% url 'home' %}">
+        <img src="{% static 'sow/images/logo.png' %}" alt="Italian Trulli" class="img-responsive "><br/><br/>
+      </a>
+      </div>
+
+    
+    
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+
+        {% if user.is_authenticated %}
+        <nav class="nav"> <a class="nav-link text-light" href="#"><strong> user: {{ user }}</strong></a>  </nav>
+        <div class="offcanvas-header">
+          <a class="nav-link active" aria-current="page" href="{% url 'logout-user' %}">Logout</a>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        
+
+
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'dashboard' %}">Dashboard</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Sow Clients
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item" href="{% url 'all-clients' %}">View Clients</a></li>
+                <li><a class="dropdown-item" href="{% url 'add-client' %}">Create Transaction</a></li>
+                <li>
+                  <hr class="dropdown-divider">  
+                </li>
+              </ul>
+            </li>
+
+            
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Sow Projects
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item" href="{% url 'all-prop' %}">View Projects</a></li>
+                <li><a class="dropdown-item" href="{% url 'add-property' %}">Add Project</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Sow Employees
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item" href="{% url 'all-agents' %}">View Employees</a></li>
+                <li><a class="dropdown-item" href="{% url 'add-agent' %}">Add Employees</a></li>
+              </ul>
+            </li>
+
+
+          </ul>
+         
+        </div>
+
+
+        {% else %}
+
+        <div class="offcanvas-header">
+          <a class="nav-link active" aria-current="page" href="{% url 'register-users' %}">Register</a>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+
+        <div class="offcanvas-header">
+          <a class="nav-link active" aria-current="page" href="{% url 'login-user' %}">Login</a>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div> 
+        {% endif %}
+
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+  </nav>

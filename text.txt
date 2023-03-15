@@ -1,0 +1,38 @@
+Property: 
+Location
+building_type
+quantity
+cost_per_item
+quantity_in_stock 
+quantity_sold
+sales_made
+last_sales_date
+
+
+Client:
+Name
+Email
+Number
+Address
+agent_id
+building_type
+Location
+Total Amount
+Amount paid 
+Amount left 
+sales_date
+recent_payment
+Date  
+
+
+Agent:
+Name
+Email
+Number
+Address
+
+
+
+
+
+

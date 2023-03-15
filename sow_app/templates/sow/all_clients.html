@@ -1,0 +1,81 @@
+{% extends 'sow/base.html'%}
+
+
+{% block content%}
+
+
+
+<div class="accordion" id="chapters">
+<div class="accordion-item">
+  <h2 class="accordion-header" id="heading-1">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse"
+      data-bs-target="#chapter-1" aria-expanded="true"
+      aria-controls="chapter-1">
+      Filter Your Search
+  
+  </button>
+  </h2>
+  <div id="chapter-1" class="accordion-collapse collapse "
+  aria-labelledby="heading-1" data-bs-parent="#chapters">
+  <div class="accordion-body">
+    <form class="d-flex" method="get">
+     <ul><br>{{myFilter.form}}</ul> <br/>
+      <button class="btn btn-outline-dark" type="submit">Search</button>
+    </form> <br/>   
+
+
+  </div>                    
+  </div>
+</div>
+</div>
+
+
+
+
+
+  <table class="table table-bordered table-hover table-striped ">
+    <thead class="table-dark">
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">First Name</th>
+        <th scope="col"> Last Name</th>
+        <th scope="col"> Phone </th>
+        <th scope="col"> Email</th>
+        <th scope="col"> Property</th>
+        <th scope="col"> Price </th>
+        <th scope="col"> Amount Paid</th>
+        <th scope="col"> Amount Left</th>
+        <th scope="col"> Sales Date</th>
+        <th scope="col"> Agent Name</th>
+    </tr>
+    </thead>
+    <tbody> 
+      {% for client in client_list %}
+
+      <tr style="cursor: pointer; cursor: hand;" onclick= "window.location = `{% url 'show-client' client.id %}`">
+        <td scope="row"> {{ forloop.counter }}</td>
+        <td scope="row"> {{ client.first_name }}</td>
+        <td scope="row"> {{ client.last_name }}</td>
+        <td scope="row"> {{ client.phone }}</td>
+        <td scope="row"> {{ client.email}}</td>
+        <td scope="row"> {{ client.building_type }}</td>
+        <td scope="row"> {{ client.price}}</td>
+        <td scope="row"> {{ client.amount_paid }}</td>
+        <td scope="row"> {{ client.amount_left }}</td>
+        <td scope="row"> {{ client.sales_date  }}</td>
+        <td scope="row"> {{ client.agent_name }}</td>
+        <td scope="row"><a href="{% url 'update-client' client.id %}" class="btn btn-primary"> Update</a></td>
+        <td scope="row"><a href="{% url 'delete-client' client.id %}" class="btn btn-danger"> Delete</a></td>
+    </tr>
+    {% endfor %}
+
+</tbody>
+</table>
+</div>
+
+
+
+   
+
+
+    {% endblock %}
